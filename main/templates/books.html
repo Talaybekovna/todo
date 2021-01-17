@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookStore</title>
+</head>
+<body>
+    {% for books in books_list %}
+    <h3>{{ books.title }}</h3>
+    <h4>{{ books.author }}</h4>
+    <h4>{{ books.year }}</h4>
+    {% endfor %}
+</body>
+</html>
