@@ -31,11 +31,14 @@ def add_todo(request):
     todo.save()
     return redirect(test)
 
+<<<<<<< HEAD
 def delete_todo(request, id):
     todo = ToDo.objects.get(id=id)
     todo.delete()
     return redirect(test)   
 
+=======
+>>>>>>> daba7fbf3c8ae3507562ad1d334b827b981f65cd
 def books(request):
     books_list = BookStore.objects.all()
     return render(request, "books.html", {"books_list": books_list})

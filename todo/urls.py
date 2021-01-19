@@ -31,6 +31,9 @@ urlpatterns = [
     path("books/", books),
     path("add-todo/", add_todo, name="add-todo"),
     path("add-book/", add_book, name="add-book"),
+<<<<<<< HEAD
     path("delete-todo/<id>/", delete_todo, name="delete-todo"),
+=======
+>>>>>>> daba7fbf3c8ae3507562ad1d334b827b981f65cd
 ]   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
