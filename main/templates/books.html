@@ -7,10 +7,32 @@
     <title>BookStore</title>
 </head>
 <body>
-    {% for books in books_list %}
-    <h3>{{ books.title }}</h3>
-    <h4>{{ books.author }}</h4>
-    <h4>{{ books.year }}</h4>
-    {% endfor %}
+    <section>
+        <div class="create_container">
+            <form action="{% url 'add-book' %}" method="POST">
+                {% csrf_token %}
+                <input class="create_input" type="text" placeholder="Заголовок" name="books_title" />
+                <input class="create_input" type="text" placeholder="Подзаголовок" name="books_subtitle" />
+                <input class="create_input" type="text" placeholder="Описание" name="books_description" />
+                <input class="create_input" type="text" placeholder="Цена" name="books_price" />
+                <input class="create_input" type="text" placeholder="Жанр" name="books_genre" />
+                <input class="create_input" type="text" placeholder="Автор" name="books_author" />
+                <input class="create_input" type="text" placeholder="Год выпуска" name="books_year" />
+                <button class="create_button">Добавить</button>
+            </form>
+        </div>
+        <div class="books_container">
+            {% for books in books_list %}
+            <h3>{{ books.title }}</h3>
+            <h4>{{ books.subtitle }}</h4>
+            <p>{{ books.description }}</p>
+            <p>{{ books.price }}</p>
+            <p>{{ books.genre }}</p>
+            <p>{{ books.author }}</p>
+            <p>{{ books.year }}</p>
+            <p>{{ books.date }}</p>
+            {% endfor %}
+        </div>
+    </section>
 </body>
 </html>
