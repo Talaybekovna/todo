@@ -24,13 +24,37 @@ def change(request):
 def delete(request):
     return render(request, "delete.html")
 
-def books(request):
-    books_list = BookStore.objects.all()
-    return render(request, "books.html", {"books_list": books_list})
-
 def add_todo(request):
     form = request.POST
     text = form["todo_text"]
     todo = ToDo(text=text)
     todo.save()
     return redirect(test)
+
+def delete_todo(request, id):
+    todo = ToDo.objects.get(id=id)
+    todo.delete()
+    return redirect(test)   
+
+def books(request):
+    books_list = BookStore.objects.all()
+    return render(request, "books.html", {"books_list": books_list})
+
+def add_book(request):
+    form = request.POST
+    title = form["books_title"]
+    subtitle = form["books_subtitle"]
+    description = form["books_description"]
+    price = form["books_price"]
+    genre = form["books_genre"]
+    author = form["books_author"]
+    year = form["books_year"]
+    fields = BookStore(title=title, 
+                    subtitle=subtitle, 
+                    description=description,
+                    price=price,
+                    genre=genre,
+                    author=author,
+                    year=year)
+    fields.save()
+    return redirect(books)
